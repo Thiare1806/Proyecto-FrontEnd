@@ -1,0 +1,23 @@
+body{
+    background-color:  #f9f4ef;
+    padding-top: 70px;
+}
+
+#dataTarget, #buttonSlider{
+    background-color: #8D6E63;
+}
+
+h1, h2, h3, h4, h5{
+    color: #5e473b;
+    font-weight: bold;
+}
+p{
+    color: #6e584a;
+}
+.pFooter{
+    color:  #f9f4ef;
+}
+
+.backgroundSection{
+    background-color: #d0ecf4;
+}
