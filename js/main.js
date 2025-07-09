@@ -35,7 +35,7 @@ $(document).ready(function () {
             $('#selectCountry').append('<option value="">Seleccione Pais</option>');
 
             data.forEach(function (country) {
-                const countryName = country.name.common;
+                const countryName = country.name.nativeName.spa.official;
 
                 $('#selectCountry').append(`<option value="${countryName}">${countryName}</option>`);
             })
@@ -159,9 +159,9 @@ $(document).ready(function () {
 
     //Eliminar un usuario
     $('#tabla-contactos').on('click', '.eliminar', function () {
-        const id = $(this).closest('tr').data('id');
+        const id = $(this).closest('tr').data('id');                            
         let dataBase = JSON.parse(localStorage.getItem("contactos")) || [];
-        dataBase = dataBase.filter(contacto => contacto.id !== id);
+        dataBase = dataBase.filter(contacto => contacto.id !== id);             
         localStorage.setItem("contactos", JSON.stringify(dataBase));
         location.reload(); // recarga para actualizar la tabla
     });
