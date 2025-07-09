@@ -33,10 +33,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="aboutUs.html">Sobre Nosotros</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="contacts.html">Contactenos</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="contacts2.html">Usuarios</a>
                     </li>
                 </ul>
@@ -44,67 +44,71 @@
         </nav>
     </header>
 
-    <section id="form">
+    <section id="form" class="my-4">
         <form class="container mx-auto">
-            <h4 class="mb-4">Contactanos</h4>
+            <h2 class="mb-4">Nuevo Usuario</h2>
             <!--Nombre-->
             <article class="form-group">
-                <label for="formName">Nombre Completo </label>
+                <label for="formName">Nombre Completo <span class="text-danger">*</span> </label>
                 <input type="text" class="form-control" id="formName" placeholder="Nombre completo">
             </article>
+
             <!--Email-->
             <article class="form-group">
-                <label for="formEmail">Correo electrónico</label>
-                <input type="email" class="form-control" id="formEmail" placeholder="name@example.com">
-            </article>
-            <!--telefono-->
-            <article class="form-group">
-                <label for="formNumber">Número de celular</label>
-                <input type="text" class="form-control" id="formNumber" placeholder="9 1234 5678">
-            </article>
-            <!--Servicio-->
-            <article class="form-group">
-                <label for="formSelectService">Seleccione un servicio</label>
-                <select class="form-control" id="formSelectService">
-                    <option value="">Seleccione un servicio</option>
-                    <option value="1. Blanqueamiento dental">1. Blanqueamiento dental</option>
-                    <option value="2. Tapadura dental">2. Tapadura dental</option>
-                    <option value="3. Extración dental">3. Extración dental</option>
-                    <option value="4. Limpieza dental">4. Limpieza dental</option>
-                    <option value="5. Prótesis removible">5. Prótesis removible</option>
-                    <option value="6. Prótesis fija">6. Prótesis fija</option>
-                </select>
-            </article>
-            <!--Sucursal-->
-            <article class="form-group">
-                <label for="formSelectOffice">Seleccione una Sucursal</label>
-                <select class="form-control" id="formSelectOffice">
-                    <option value="">Seleccione una sucursal</option>
-                    <option value="Puente Alto">Puente alto</option>
-                    <option value="La Florida">La Florida</option>
-                    <option value="Ñuñoa">Ñuñoa</option>
-                    <option value="Macul">Macul</option>
-                    <option value="Providencia">Providencia</option>
-                </select>
-            </article>
-            <!--Mensaje/comentario-->
-            <article class="form-group">
-                <label for="formComent">Mensaje / Consulta</label>
-                <textarea class="form-control" id="formComent" rows="3"></textarea>
+                <label for="formEmail">Correo electrónico <span class="text-danger">*</span> </label>
+                <input class="form-control" id="formEmail" placeholder="name@example.com">
             </article>
 
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <!--telefono-->
+            <article class="form-group">
+                <label for="formNumber">Número de celular <span class="text-danger">*</span> </label>
+                <input type="text" class="form-control" id="formNumber" placeholder="912345678">
+            </article>
+
+            <!--Pais-->
+            <article class="form-group">
+                <label for="selectCountry">Pais <span class="text-danger">*</span> </label>
+                <select class="form-control" id="selectCountry">
+                    <option value="">Seleccione</option>
+                </select>
+                <input type="text" class="form-control" id="otherCountry" placeholder="Ingrese el nombre del pais">
+            </article>
+
+            <!--Mensaje/comentario-->
+            <article class="form-group">
+                <label for="formComent">Mensaje / comentario <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="formComent" rows="3"></textarea>
+                <small id="charCount" class="form-text text-muted">0 / 120 caracteres</small>
+            </article>
+
+            <!--Ver errores-->
+            <article id="div-errores" class="alert alert-danger" style="display: none;">
+                <ul id="lista-errores"></ul>
+            </article>
+
+            <button type="submit" class="btn btn-sm btn-primary">Enviar</button>
         </form>
     </section>
 
-    <section>
-        <div class="container mx-auto my-4">
-            <h4 class="mb-3">Encuéntranos en nuestras distintas sucursales</h4>
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe
-                    src="https://www.google.com/maps/d/u/0/embed?mid=1JJvGaJR4v6EqVJJmeFjMkGhFPwepBRk&ehbc=2E312F&noprof=1"
-                    width="640" height="480"></iframe> width="640" height="480"></iframe>
-            </div>
+    <section class="container mx-auto">
+        <h2>Lista de Usuarios</h2>
+        <table id="tabla-contactos" style="display: none;" class="table-responsive table table-striped ">
+            <thead class="thead-dark">
+                <tr class="text-center">
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>celular</th>
+                    <th>País</th>
+                    <th>Mensaje/Comentario</th>
+                    <th>Editar/Eliminar</th>                    
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>            
+        </table>
+
+        <div class="alert alert-warning" id="mensaje-sin-contactos" style="display: none;">
+            No hay usuarios para mostrar
         </div>
     </section>
 
@@ -134,7 +138,7 @@
         </section>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
